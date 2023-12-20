@@ -38,6 +38,10 @@ resource "snowflake_resource_monitor" "Monitor_DEV" {
 
     notify_users = [var.username]
     warehouses = [ snowflake_warehouse.WH_DEV.name ]
+    
+    lifecycle {
+    ignore_changes = [start_timestamp]
+  }
 }
 
 ## Monitor PRO
@@ -56,6 +60,10 @@ resource "snowflake_resource_monitor" "Monitor_PRO" {
 
     notify_users = [var.username]
     warehouses = [ snowflake_warehouse.WH_PRO.name ]
+
+    lifecycle {
+    ignore_changes = [start_timestamp]
+  }
 }
 
 ## Monitor ACCOUNT
@@ -74,4 +82,8 @@ resource "snowflake_resource_monitor" "Monitor_ACCOUNT" {
 
     notify_users = [var.username]
     set_for_account = true
+
+    lifecycle {
+    ignore_changes = [start_timestamp]
+  }
 }
