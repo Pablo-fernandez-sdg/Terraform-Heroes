@@ -1,9 +1,9 @@
 # providers.tf
 
 username = "PABLOTERRAFORM"
-account  = "IDOVEFK-QY64405"
+account  = "ZLBSKAH-AG73408"
 role     = "ACCOUNTADMIN"
-password_account = "Pabloterraform1"
+password_account = "Zarrapastrosa1"
 
 # role.tf
 
