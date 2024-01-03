@@ -30,6 +30,15 @@ resource "snowflake_user" "SARAH" {
   must_change_password = true
 }
 
+## CARLOS USER
+
+resource "snowflake_user" "CARLOS" {
+  name = "CARLOS"
+  login_name = "CARLOS"
+  password = var.password_generic
+  must_change_password = true
+}
+
 ### ROLE
 
 resource "snowflake_role" "Platform_Admin" {
@@ -125,4 +134,10 @@ resource "snowflake_role_grants" "grants_Analyst" {
 resource "snowflake_role_grants" "grants_Developers" {
     role_name = snowflake_role.Developer.name
     users = [snowflake_user.SARAH.name]
+}
+
+resource "snowflake_role_grants" "grants_Carlos_Admin" {
+    role_name = snowflake_role.Platform_Admin.name
+    roles = ["ACCOUNTADMIN"]
+    users = [snowflake_user.CARLOS.name]
 }
